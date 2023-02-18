@@ -1,46 +1,34 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
 /**
- * main - main block
- * Description: Write a program that prints all possible
- * different combinations of two digits
- * Numbers must be separated by ,, followed by a space
- * The two digits must be different
- * 01 and 10 are considered the same combination of the two digits 0 and 1
- * Print only the smallest combination of two digits
- *  Numbers should be printed in ascending order, with two digits
- * You can only use the putchar function
- * (every other function (printf, puts, et...) is forbidden)
- * You can only use putchar five times maximum in your code
- * You are not allowed to use any variable of type char
- * All your code should be in the main function
- * Return: 0
- */
+	 * main - Entry point
+	 * Return: Always 0 (Success)
+	 */
 int main(void)
 {
-	int c;
-	int d = 0;
+	int a, b, c, res;
 
-	while (d < 10)
+	for (a = 0; a <= 7; a++)
 	{
-		c = 0;
-		while (c < 10)
+		for (b = 0; b <= 8; b++)
 		{
-			if (d != c && d < c)
+			for (c = 0; c <= 9; c++)
 			{
-				putchar('0' + d);
-				putchar('0' + c);
-
-				if (c + d != 17)
+				if (a < b && b < c)
 				{
-					putchar(',');
-					putchar(' ');
+					putchar(a + '0');
+					putchar(b + '0');
+					putchar(c + '0');
+					res = a * 100 + b * 10 + c;
+					if (res < 789)
+					{
+						putchar(',');
+						putchar(' ');
+					}
 				}
 			}
-
-			c++;
 		}
-		d++;
 	}
 	putchar('\n');
 	return (0);
